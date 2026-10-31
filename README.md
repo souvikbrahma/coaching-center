@@ -17,7 +17,7 @@ On submit, the form validates name and phone, then opens a WhatsApp message to *
 
 When the page runs as a claude.ai artifact, it also saves enquiries to the artifact database and shows the owner an "Enquiries received" table. Outside claude.ai that code does nothing. To store leads on your own host, add a `fetch()` to your backend or CRM inside the form's submit handler in `index.html`.
 
-## Files
+## Files.
 
 ```
 index.html   the whole site (HTML, CSS, JS in one file)
