@@ -36,6 +36,9 @@
   --steel:#9aaac0;--line:#22324b;--band:#060d18;--band-fg:#e6ecf5;--band-muted:#8d9db4;--ok:#4cc38a;color-scheme:dark}
 
 *{box-sizing:border-box}
+html,body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 body{background:var(--sky);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6}
@@ -51,7 +54,7 @@ p{margin:0}
 .band .eyebrow{color:var(--saffron)}
 .lede{color:var(--steel);max-width:60ch;font-size:1.08rem}
 .band .lede{color:var(--band-muted)}
-section{padding-block:clamp(56px,8vw,96px)}
+section{padding-block:clamp(56px,8vw,96px);scroll-margin-top:60px}
 .band{background:var(--band);color:var(--band-fg)}
 
 /* header */
@@ -108,11 +111,19 @@ section{padding-block:clamp(56px,8vw,96px)}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
 .tags span{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;padding:4px 8px;border-radius:3px;background:var(--sky);color:var(--ink);border:1px solid var(--line)}
 .prog.lead{grid-column:span 2;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
+.prog .in{min-width:0}
 .prog.lead img,.prog.lead .ph{aspect-ratio:auto;height:100%;min-height:260px}
 .prog.lead h3{font-size:2rem}
 .prog a.more{font-weight:600;font-size:.9rem;color:var(--saffron-ink);text-decoration:none;margin-top:auto;padding-top:6px}
 @media (max-width:980px){.programs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.programs{grid-template-columns:1fr}.prog.lead{grid-column:auto;grid-template-columns:1fr}.prog.lead img,.prog.lead .ph{min-height:0;aspect-ratio:16/10}}
+
+.art{aspect-ratio:16/10;display:flex;align-items:flex-end;padding:18px 20px;color:#fff;font-family:var(--font-display);font-weight:900;font-size:2.3rem;line-height:.95;text-transform:uppercase;letter-spacing:.01em;position:relative;overflow:hidden}
+.art::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-55deg,rgba(255,255,255,.07) 0 14px,transparent 14px 42px)}
+.art span{position:relative}
+.art.navy{background:linear-gradient(135deg,#132544,#2f4a78)}
+.art.saffron{background:linear-gradient(135deg,#7a4606,#d98a1f)}
+.swipe{display:none}
 
 /* SSB flight strip */
 .strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border-top:2px solid var(--saffron);margin-top:8px}
@@ -174,6 +185,69 @@ fieldset{border:0;padding:0;margin:0;display:grid;gap:8px;min-width:0}
 .inbox table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:640px}
 .inbox th{text-align:left;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);padding:8px;border-bottom:1px solid var(--line)}
 .inbox td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+
+/* ---------- phone layer ---------- */
+.mbar{display:none}
+@media (max-width:640px){
+  body{font-size:15.5px}
+  section{padding-block:52px}
+  .sec-head{margin-bottom:26px}
+  h2{font-size:2.15rem}
+  .top .wrap{min-height:58px;gap:12px}
+  .brand svg{width:32px;height:32px}
+  .brand b{font-size:1.2rem}
+  .top .btn{padding:9px 14px;font-size:.88rem}
+
+  .hero .bg img{object-position:50% 18%}
+  .hero .bg::after{background:linear-gradient(180deg,rgba(6,13,24,.1) 0%,rgba(6,13,24,.72) 24%,rgba(6,13,24,.95) 44%,rgba(6,13,24,.98) 100%)}
+  .hero .wrap{padding-block:170px 32px}
+  .hero .eyebrow{font-size:.68rem}
+  .hero h1{font-size:2.9rem}
+  .hero .sub{font-size:1rem;margin-top:14px}
+  .hero .ctas{display:grid;grid-template-columns:1fr;gap:10px;margin-top:22px}
+  .hero .ctas .btn{justify-content:center;padding:14px}
+  .proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:28px;padding-top:18px;font-size:.74rem;line-height:1.35}
+  .proof b{display:block;font-size:1.35rem;margin:0 0 2px}
+  .proof .stars{display:none}
+
+  .mentor figure img,.ph{border-radius:6px}
+  .creds b{font-size:1.25rem}
+
+  /* swipeable rails */
+  .rail{display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:86%;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
+        margin-inline:calc(-1 * var(--gutter-l)) calc(-1 * var(--gutter-r));padding-inline:var(--gutter-l) var(--gutter-r);scroll-padding-inline:var(--gutter-l);padding-bottom:6px;scrollbar-width:none}
+  .rail::-webkit-scrollbar{display:none}
+  .rail>*{scroll-snap-align:start}
+  .swipe{display:flex;align-items:center;gap:8px;margin-top:14px;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--steel)}
+  .swipe::after{content:"";flex:0 0 36px;height:2px;background:var(--saffron)}
+
+  .programs.rail .prog,.programs.rail .prog.lead{grid-column:auto;display:flex;flex-direction:column}
+  .prog.lead img,.prog.lead .ph,.prog img,.prog .ph,.art{aspect-ratio:16/9;height:auto;min-height:0}
+  .prog.lead h3{font-size:1.6rem}
+  .art{font-size:1.9rem}
+  .prog .in{padding:16px 16px 18px}
+
+  .voices.rail{columns:auto;grid-auto-columns:84%}
+  .voices.rail .voice{margin:0}
+  .voice.big blockquote{font-size:1.45rem}
+
+  .day h3{font-size:1.4rem}
+  .boards{font-size:.7rem}
+
+  .fact{grid-template-columns:78px minmax(0,1fr)}
+  .fact .num{font-size:1.45rem}
+  form{padding:18px;border-radius:8px}
+  input,select,textarea{font-size:16px}
+
+  .mbar{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;
+        padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));
+        background:color-mix(in srgb,var(--band) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.1)}
+  .mbar a{display:flex;align-items:center;justify-content:center;gap:6px;border-radius:6px;padding:11px 6px;font-weight:600;font-size:.88rem;text-decoration:none;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35)}
+  .mbar a.wa{background:#1f9e57;box-shadow:none}
+  .mbar a.go{background:var(--saffron);color:#1a1205;box-shadow:none}
+  .mbar svg{width:16px;height:16px}
+  footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+}
 
 footer{background:var(--band);color:var(--band-muted);font-size:.85rem;padding-block:28px;border-top:1px solid rgba(255,255,255,.08)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
@@ -243,7 +317,7 @@ footer a{color:var(--band-fg)}
       <h2>From the written paper to the conference hall</h2>
       <p class="lede">Pick the stage you are at. Every program runs in New Town classrooms, and SSB guidance is also available online for candidates outside Kolkata.</p>
     </div>
-    <div class="programs">
+    <div class="programs rail">
       <article class="prog lead">
         <img id="img-gto" alt="Candidates working together on an outdoor group task while an officer observes" hidden>
         <div class="ph" id="ph-gto"></div>
@@ -266,7 +340,7 @@ footer a{color:var(--band-fg)}
         </div>
       </article>
       <article class="prog">
-        <div class="ph" style="aspect-ratio:16/10;background:linear-gradient(135deg,#1c2e4d,#3a5480)"></div>
+        <div class="art navy" aria-hidden="true"><span>CDSE<br>AFCAT</span></div>
         <div class="in">
           <h3>CDSE &amp; AFCAT Written</h3>
           <p>English, General Knowledge, Elementary Maths and the AFCAT reasoning and military aptitude section, with current-affairs drills that also feed your GD and lecturette.</p>
@@ -295,7 +369,7 @@ footer a{color:var(--band-fg)}
         </div>
       </article>
       <article class="prog">
-        <div class="ph" style="aspect-ratio:16/10;background:linear-gradient(135deg,#8a5208,#d98a1f)"></div>
+        <div class="art saffron" aria-hidden="true"><span>Speak<br>with command</span></div>
         <div class="in">
           <h3>Spoken English &amp; Personality</h3>
           <p>Fluency, lecturette delivery and interview poise for candidates who know the answer but struggle to say it well. Open to non-defence students too.</p>
@@ -304,6 +378,7 @@ footer a{color:var(--band-fg)}
         </div>
       </article>
     </div>
+    <p class="swipe">Swipe for all 6 programs</p>
   </div>
 </section>
 
@@ -342,7 +417,7 @@ footer a{color:var(--band-fg)}
       <h2>Rated 5.0 by every reviewer</h2>
       <div class="rating-row"><b>5.0</b><span class="stars" aria-label="5 out of 5">★★★★★</span><span>142 Google reviews · no rating below five stars</span></div>
     </div>
-    <div class="voices">
+    <div class="voices rail">
       <figure class="voice big"><blockquote>Recommended for the NDA 151 course from 5 AFSB Guwahati after training here.</blockquote><figcaption><b>Abhijit Sinha</b><span>Parent</span></figcaption></figure>
       <figure class="voice"><blockquote>His experience as an evaluator helps fresh candidates understand the testing process and get familiar with its challenges.</blockquote><figcaption><b>Sanjana Ghosh</b><span class="tag">SSB</span></figcaption></figure>
       <figure class="voice"><blockquote>The classroom sessions are structured and interactive, with mock sessions that simulate the real screening, psychology, group and interview tests.</blockquote><figcaption><b>Richa Bhakat</b><span class="tag">SSB</span></figcaption></figure>
@@ -353,6 +428,7 @@ footer a{color:var(--band-fg)}
       <figure class="voice"><blockquote>Current-affairs practice here improved my lecturette and GD. Sir's SSB experience is enormous.</blockquote><figcaption><b>Radhika Mishra</b><span class="tag">SSB</span></figcaption></figure>
       <figure class="voice"><blockquote>His interactive classes helped me get screened in at my AFSB, and his remarks helped me improve.</blockquote><figcaption><b>Aditi Patar</b><span class="tag">AFSB</span></figcaption></figure>
     </div>
+    <p class="swipe">Swipe for more reviews</p>
     <p class="fine" style="margin-top:8px">Excerpts from public Google reviews, lightly shortened.</p>
   </div>
 </section>
@@ -427,6 +503,12 @@ footer a{color:var(--band-fg)}
   </div>
 </section>
 </main>
+
+<nav class="mbar" aria-label="Quick contact">
+  <a href="tel:+919163722921"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call</a>
+  <a class="wa" href="https://wa.me/919163722921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>WhatsApp</a>
+  <a class="go" href="#enquire">Enquire now</a>
+</nav>
 
 <footer>
   <div class="wrap">
