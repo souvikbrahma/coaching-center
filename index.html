@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Fly High Academy</title>
+<meta name="description" content="SSB interview, NDA, CDSE, AFCAT, PABT and Sainik School coaching in New Town, Kolkata, led by Gp Capt Kaushik Sinha (Retd), Ex-GTO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Libre+Franklin:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: a briefing-room page. Full-bleed photographic hero, then bands that alternate
+   ink-navy and day-sky, with a "flight strip" timeline for the 5-day SSB as the centrepiece. */
+:root{
+  --ink:#0d1b33;        /* IAF navy, text + dark bands */
+  --sky:#eef2f7;        /* page ground, cool off-white */
+  --paper:#ffffff;      /* raised surfaces */
+  --saffron:#d98a1f;    /* accent, from the academy's own posters */
+  --saffron-ink:#8a5208;/* accent text on light */
+  --steel:#5b6b82;      /* secondary text */
+  --line:#cfd8e4;       /* hairlines */
+  --band:#0d1b33;       /* dark band bg */
+  --band-fg:#e9eef6;
+  --band-muted:#9fb0c8;
+  --ok:#1f7a4d;
+  --font-display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --font-body:"Libre Franklin","Segoe UI",Helvetica,Arial,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --gutter-l:max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ink:#e6ecf5;--sky:#09121f;--paper:#111d30;--saffron:#f0a53c;--saffron-ink:#f3b65e;
+  --steel:#9aaac0;--line:#22324b;--band:#060d18;--band-fg:#e6ecf5;--band-muted:#8d9db4;--ok:#4cc38a;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ink:#e6ecf5;--sky:#09121f;--paper:#111d30;--saffron:#f0a53c;--saffron-ink:#f3b65e;
+  --steel:#9aaac0;--line:#22324b;--band:#060d18;--band-fg:#e6ecf5;--band-muted:#8d9db4;--ok:#4cc38a;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--sky);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--band)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--saffron);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1160px;margin:0 auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+h1,h2,h3{font-family:var(--font-display);line-height:1.02;text-wrap:balance;margin:0;letter-spacing:.01em}
+h2{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;text-transform:uppercase}
+h3{font-size:1.6rem;font-weight:800;text-transform:uppercase}
+p{margin:0}
+.eyebrow{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--saffron-ink)}
+.band .eyebrow{color:var(--saffron)}
+.lede{color:var(--steel);max-width:60ch;font-size:1.08rem}
+.band .lede{color:var(--band-muted)}
+section{padding-block:clamp(56px,8vw,96px)}
+.band{background:var(--band);color:var(--band-fg)}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--band);color:var(--band-fg);border-bottom:1px solid rgba(255,255,255,.08)}
+.top .wrap{display:flex;align-items:center;gap:20px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
+.brand svg{width:38px;height:38px;flex:none}
+.brand b{font-family:var(--font-display);font-weight:900;font-size:1.45rem;letter-spacing:.04em;text-transform:uppercase;line-height:1}
+.brand small{display:block;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;color:var(--saffron);text-transform:uppercase}
+.nav{display:flex;gap:22px;font-size:.92rem;font-weight:500}
+.nav a{text-decoration:none;color:var(--band-muted)}
+.nav a:hover{color:var(--band-fg)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:6px;padding:12px 20px;font:600 .95rem var(--font-body);text-decoration:none;cursor:pointer;background:var(--saffron);color:#1a1205;transition:transform .15s,filter .15s}
+.btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.btn.wa{background:#1f9e57;color:#fff}
+.btn svg{width:18px;height:18px}
+@media (max-width:860px){.nav{display:none}.top .btn.ghost{display:none}}
+
+/* hero */
+.hero{position:relative;background:var(--band);color:#fff;overflow:hidden;padding:0}
+.hero .bg{position:absolute;inset:0;background:#1a2a44 center/cover no-repeat;background-image:linear-gradient(120deg,#0d1b33,#2b3f63 60%,#c4782a)}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:58% 30%;display:block}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,13,24,.92) 0%,rgba(6,13,24,.72) 40%,rgba(6,13,24,.1) 75%)}
+.hero .wrap{position:relative;padding-block:clamp(72px,11vw,140px) clamp(48px,7vw,84px)}
+.hero h1{font-size:clamp(3rem,8.4vw,6.4rem);font-weight:900;text-transform:uppercase;max-width:11ch;letter-spacing:.005em}
+.hero h1 em{font-style:normal;color:var(--saffron)}
+.hero .sub{margin-top:20px;max-width:46ch;font-size:1.12rem;color:#d7e0ee}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero .ctas .ghost{color:#fff}
+.proof{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,.18);font-size:.92rem;color:#c9d4e4}
+.proof b{color:#fff;font-family:var(--font-display);font-size:1.6rem;font-weight:800;margin-right:6px;font-variant-numeric:tabular-nums}
+.stars{color:var(--saffron);letter-spacing:2px}
+
+/* mentor */
+.mentor{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.mentor figure{margin:0;position:relative}
+.mentor figure img,.ph{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;display:block;max-width:100%;background:linear-gradient(135deg,var(--line),var(--paper))}
+.mentor figcaption{position:absolute;left:14px;bottom:14px;background:var(--band);color:var(--band-fg);padding:8px 12px;border-radius:4px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+.mentor .body{display:grid;gap:18px;min-width:0}
+.creds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:6px}
+.creds div{background:var(--paper);padding:16px}
+.creds b{display:block;font-family:var(--font-display);font-size:1.5rem;font-weight:800;text-transform:uppercase;line-height:1.05}
+.creds span{font-size:.85rem;color:var(--steel)}
+@media (max-width:820px){.mentor{grid-template-columns:1fr}.creds{grid-template-columns:1fr}}
+
+/* programs */
+.sec-head{display:grid;gap:12px;margin-bottom:40px}
+.programs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.prog{background:var(--paper);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.prog img,.prog .ph{aspect-ratio:16/10;border-radius:0}
+.prog .in{padding:20px 20px 22px;display:grid;gap:10px;align-content:start;flex:1}
+.prog p{color:var(--steel);font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.tags span{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;padding:4px 8px;border-radius:3px;background:var(--sky);color:var(--ink);border:1px solid var(--line)}
+.prog.lead{grid-column:span 2;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
+.prog.lead img,.prog.lead .ph{aspect-ratio:auto;height:100%;min-height:260px}
+.prog.lead h3{font-size:2rem}
+.prog a.more{font-weight:600;font-size:.9rem;color:var(--saffron-ink);text-decoration:none;margin-top:auto;padding-top:6px}
+@media (max-width:980px){.programs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.programs{grid-template-columns:1fr}.prog.lead{grid-column:auto;grid-template-columns:1fr}.prog.lead img,.prog.lead .ph{min-height:0;aspect-ratio:16/10}}
+
+/* SSB flight strip */
+.strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border-top:2px solid var(--saffron);margin-top:8px}
+.day{padding:22px 18px 4px 0;position:relative;min-width:0}
+.day::before{content:"";position:absolute;top:-8px;left:0;width:14px;height:14px;border-radius:50%;background:var(--band);border:3px solid var(--saffron)}
+.day .d{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;color:var(--saffron)}
+.day h3{font-size:1.55rem;margin:6px 0 10px;color:var(--band-fg)}
+.day ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:.9rem;color:var(--band-muted)}
+.day li b{font-family:var(--font-mono);font-size:.78rem;color:var(--band-fg);font-weight:500;margin-right:6px}
+.day .we{margin-top:14px;font-size:.86rem;color:var(--band-fg);border-left:2px solid rgba(255,255,255,.15);padding-left:10px}
+.boards{margin-top:44px;display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--font-mono);font-size:.76rem;letter-spacing:.06em;color:var(--band-muted)}
+.boards b{color:var(--band-fg);font-weight:500}
+@media (max-width:900px){.strip{grid-template-columns:1fr;border-top:0;border-left:2px solid var(--saffron);margin-left:7px}.day{padding:0 0 26px 26px}.day::before{top:4px;left:-9px}}
+
+/* voices */
+.voices{columns:3 300px;column-gap:20px}
+.voice{break-inside:avoid;margin:0 0 20px;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:22px}
+.voice blockquote{margin:0;font-size:1rem}
+.voice figcaption{margin-top:14px;display:flex;justify-content:space-between;gap:10px;font-size:.85rem;color:var(--steel)}
+.voice figcaption b{color:var(--ink);font-weight:600}
+.voice .tag{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--saffron-ink)}
+.voice.big{background:var(--band);color:var(--band-fg);border-color:transparent}
+.voice.big blockquote{font-family:var(--font-display);font-size:1.7rem;line-height:1.12;font-weight:800;text-transform:uppercase}
+.voice.big figcaption{color:var(--band-muted)}.voice.big figcaption b{color:var(--band-fg)}
+.rating-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:8px;color:var(--steel)}
+.rating-row b{font-family:var(--font-display);font-size:2.4rem;font-weight:900;color:var(--ink);line-height:1}
+
+/* enquiry */
+.enq{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,64px);align-items:start}
+.enq .side{display:grid;gap:22px;min-width:0}
+.facts{display:grid;gap:14px;margin-top:6px}
+.fact{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12);font-size:.95rem}
+.fact span:first-child{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--band-muted);padding-top:3px}
+.fact .num{font-family:var(--font-display);font-size:1.7rem;font-weight:800;letter-spacing:.03em;user-select:all}
+.copy{background:none;border:1px solid rgba(255,255,255,.3);color:var(--band-fg);border-radius:4px;font:500 .78rem var(--font-body);padding:4px 10px;cursor:pointer;margin-left:10px;vertical-align:middle}
+form{background:var(--paper);color:var(--ink);border-radius:10px;padding:clamp(20px,3.5vw,34px);display:grid;gap:16px;min-width:0}
+.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:560px){.row{grid-template-columns:1fr}}
+.f{display:grid;gap:6px;min-width:0}
+label,.lg{font-size:.85rem;font-weight:600}
+label i{font-style:normal;font-weight:400;color:var(--steel)}
+input,select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:var(--sky);border:1px solid var(--line);border-radius:6px;padding:11px 12px}
+textarea{min-height:92px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--saffron);outline-offset:0;border-color:transparent}
+fieldset{border:0;padding:0;margin:0;display:grid;gap:8px;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{font-weight:500;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--sky);border-radius:999px;padding:7px 14px;cursor:pointer;font-size:.88rem}
+.chips input{width:auto;margin:0;accent-color:var(--saffron)}
+.chips label:has(input:checked){border-color:var(--saffron);background:color-mix(in srgb,var(--saffron) 14%,var(--paper))}
+.err{color:#c0392b;font-size:.82rem;min-height:1em}
+.fine{font-size:.8rem;color:var(--steel)}
+.done{display:grid;gap:14px;text-align:left}
+.done h3{color:var(--ok)}
+.done pre{white-space:pre-wrap;font:inherit;font-size:.9rem;background:var(--sky);border:1px solid var(--line);border-radius:6px;padding:12px;margin:0;overflow-x:auto}
+@media (max-width:900px){.enq{grid-template-columns:1fr}}
+
+/* owner inbox */
+.inbox{margin-top:40px;background:var(--paper);color:var(--ink);border-radius:10px;padding:22px;overflow-x:auto}
+.inbox table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:640px}
+.inbox th{text-align:left;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);padding:8px;border-bottom:1px solid var(--line)}
+.inbox td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+
+footer{background:var(--band);color:var(--band-muted);font-size:.85rem;padding-block:28px;border-top:1px solid rgba(255,255,255,.08)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
+footer a{color:var(--band-fg)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Fly High Academy home">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#0d1b33" stroke="#d98a1f" stroke-width="2"/><path d="M6 27c7-2 12-6 18-14 6 8 11 12 18 14-7 0-12-2-18-6-6 4-11 6-18 6z" fill="#d98a1f"/><path d="M14 33c4-1 7-3 10-6 3 3 6 5 10 6-4 1-7 0-10-2-3 2-6 3-10 2z" fill="#e9eef6"/></svg>
+      <span><b>Fly High Academy</b><small>New Town · Kolkata</small></span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#mentor">Mentor</a><a href="#programs">Programs</a><a href="#ssb">SSB in 5 days</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a>
+    </nav>
+    <a class="btn ghost" href="https://wa.me/919163722921" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="btn" href="#enquire">Enquire</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="bg"><img id="img-hero" alt="" hidden></div>
+  <div class="wrap">
+    <p class="eyebrow">SSB · NDA · CDSE · AFCAT · PABT · Sainik School</p>
+    <h1>Our ground work takes you <em>fly high</em></h1>
+    <p class="sub">Defence entrance and SSB interview coaching in New Town, Kolkata, run by a retired Air Force Group Captain who sat on the other side of the table as a GTO.</p>
+    <div class="ctas">
+      <a class="btn" href="#enquire">Book a counselling call</a>
+      <a class="btn ghost" href="#ssb">How we train for SSB</a>
+    </div>
+    <div class="proof">
+      <span><b>5.0</b><span class="stars">★★★★★</span> 142 Google reviews</span>
+      <span><b>Ex-GTO</b>led mentoring</span>
+      <span><b>Classroom</b>+ online batches</span>
+    </div>
+  </div>
+</section>
+
+<section id="mentor">
+  <div class="wrap mentor">
+    <figure>
+      <img id="img-mentor" alt="A retired Air Force officer conducting a mock personal interview with a candidate" hidden>
+      <div class="ph" id="ph-mentor"></div>
+      <figcaption>Mock interview, personal attention</figcaption>
+    </figure>
+    <div class="body">
+      <p class="eyebrow">Your mentor</p>
+      <h2>Gp Capt Kaushik Sinha (Retd), Ex-GTO</h2>
+      <p class="lede">Group Captain Sinha served as a Group Testing Officer at a Services Selection Board before founding Fly High Academy. Candidates learn the procedure from someone who has assessed it, then practise every task until the habits hold under pressure.</p>
+      <p class="lede">Classes are small, and he works with each candidate on their own weak spots, whether that is a nervous lecturette, a slow PPDT story or a group discussion where they go quiet. Psychologist, Interviewing Officer and GTO perspectives are all covered.</p>
+      <div class="creds">
+        <div><b>Indian Air Force</b><span>Retired Group Captain</span></div>
+        <div><b>Former GTO</b><span>Assessed candidates at SSB</span></div>
+        <div><b>All three forces</b><span>Army, Navy and Air Force entries</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="programs" style="background:var(--paper);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Programs</p>
+      <h2>From the written paper to the conference hall</h2>
+      <p class="lede">Pick the stage you are at. Every program runs in New Town classrooms, and SSB guidance is also available online for candidates outside Kolkata.</p>
+    </div>
+    <div class="programs">
+      <article class="prog lead">
+        <img id="img-gto" alt="Candidates working together on an outdoor group task while an officer observes" hidden>
+        <div class="ph" id="ph-gto"></div>
+        <div class="in">
+          <p class="eyebrow">Flagship</p>
+          <h3>SSB Interview Preparation</h3>
+          <p>The full five-day procedure, practised the way boards run it: OIR and PPDT screening, the psychology battery, every GTO task on the ground, and mock personal interviews. Outdoor sessions build the stamina and team instinct the GTO looks for.</p>
+          <div class="tags"><span>NDA</span><span>CDS · IMA/OTA</span><span>AFCAT</span><span>TES</span><span>SSC Tech</span><span>Navy entries</span><span>Women's entries</span></div>
+          <a class="more" href="#enquire" data-prog="SSB Interview Preparation">Enquire about SSB batches →</a>
+        </div>
+      </article>
+      <article class="prog">
+        <img id="img-gd" alt="Defence aspirants in a classroom group discussion" hidden>
+        <div class="ph" id="ph-gd"></div>
+        <div class="in">
+          <h3>NDA Written + SSB</h3>
+          <p>Mathematics and General Ability Test preparation alongside early SSB grooming, so class 11, 12 and dropper candidates arrive at the board already practised.</p>
+          <div class="tags"><span>UPSC NDA &amp; NA</span><span>Maths</span><span>GAT</span></div>
+          <a class="more" href="#enquire" data-prog="NDA Written + SSB">Enquire →</a>
+        </div>
+      </article>
+      <article class="prog">
+        <div class="ph" style="aspect-ratio:16/10;background:linear-gradient(135deg,#1c2e4d,#3a5480)"></div>
+        <div class="in">
+          <h3>CDSE &amp; AFCAT Written</h3>
+          <p>English, General Knowledge, Elementary Maths and the AFCAT reasoning and military aptitude section, with current-affairs drills that also feed your GD and lecturette.</p>
+          <div class="tags"><span>CDSE</span><span>AFCAT</span><span>EKT</span></div>
+          <a class="more" href="#enquire" data-prog="CDSE / AFCAT Written">Enquire →</a>
+        </div>
+      </article>
+      <article class="prog">
+        <img id="img-pabt" alt="Hands on a flight simulator joystick and throttle" hidden>
+        <div class="ph" id="ph-pabt"></div>
+        <div class="in">
+          <h3>PABT / CPSS Guidance</h3>
+          <p>Coaching for the Air Force pilot aptitude test: instrument reading, the control and coordination tasks, and what to expect on the day, from an officer of the service.</p>
+          <div class="tags"><span>Flying branch</span><span>CPSS</span></div>
+          <a class="more" href="#enquire" data-prog="PABT / CPSS">Enquire →</a>
+        </div>
+      </article>
+      <article class="prog">
+        <img id="img-sainik" alt="School children doing morning drill on a playground" hidden>
+        <div class="ph" id="ph-sainik"></div>
+        <div class="in">
+          <h3>Sainik School, RIMC &amp; Military School</h3>
+          <p>Entrance coaching for younger cadets in classes 5 to 8, with the discipline and confidence the interview and medical stages reward.</p>
+          <div class="tags"><span>AISSEE</span><span>RIMC</span><span>RMS</span></div>
+          <a class="more" href="#enquire" data-prog="Sainik School / RIMC / RMS">Enquire →</a>
+        </div>
+      </article>
+      <article class="prog">
+        <div class="ph" style="aspect-ratio:16/10;background:linear-gradient(135deg,#8a5208,#d98a1f)"></div>
+        <div class="in">
+          <h3>Spoken English &amp; Personality</h3>
+          <p>Fluency, lecturette delivery and interview poise for candidates who know the answer but struggle to say it well. Open to non-defence students too.</p>
+          <div class="tags"><span>Lecturette</span><span>GD</span><span>Interview</span></div>
+          <a class="more" href="#enquire" data-prog="Spoken English & Personality">Enquire →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="ssb" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The board, day by day</p>
+      <h2>What happens at SSB, and how we train each day</h2>
+      <p class="lede">The Services Selection Board runs a fixed five-day procedure. Fly High practises every test on it, in the same order, so nothing on the real days is new.</p>
+    </div>
+    <div class="strip">
+      <div class="day"><span class="d">DAY 1</span><h3>Screening</h3>
+        <ul><li><b>OIR</b>Officer Intelligence Rating</li><li><b>PPDT</b>Picture perception, story &amp; discussion</li></ul>
+        <p class="we">Timed OIR sets and PPDT narration drills with feedback on every story.</p></div>
+      <div class="day"><span class="d">DAY 2</span><h3>Psychology</h3>
+        <ul><li><b>TAT</b>Thematic apperception</li><li><b>WAT</b>Word association</li><li><b>SRT</b>Situation reaction</li><li><b>SD</b>Self description</li></ul>
+        <p class="we">Practice batteries at board speed, reviewed for consistency with your personality.</p></div>
+      <div class="day"><span class="d">DAY 3</span><h3>GTO, part one</h3>
+        <ul><li><b>GD</b>Group discussion</li><li><b>GPE</b>Group planning</li><li><b>PGT</b>Progressive group task</li><li><b>HGT</b>Half group task</li><li><b>LEC</b>Lecturette</li></ul>
+        <p class="we">Outdoor obstacle work and planning exercises, coached by a former GTO.</p></div>
+      <div class="day"><span class="d">DAY 4</span><h3>GTO, part two</h3>
+        <ul><li><b>IOT</b>Individual obstacles</li><li><b>CT</b>Command task</li><li><b>FGT</b>Final group task</li><li><b>PI</b>Personal interview</li></ul>
+        <p class="we">Mock interviews on your own PIQ form, with the follow-up questions officers actually ask.</p></div>
+      <div class="day"><span class="d">DAY 5</span><h3>Conference</h3>
+        <ul><li><b>CONF</b>Board conference &amp; results</li></ul>
+        <p class="we">Conference rehearsal so your last impression is calm and clear.</p></div>
+    </div>
+    <p class="boards">Boards our candidates report to: <b>AFSB Dehradun</b> · <b>Mysuru</b> · <b>Gandhinagar</b> · <b>Varanasi</b> · <b>Guwahati</b> · <b>SSB Allahabad</b> · <b>Bhopal</b> · <b>Kolkata (Navy)</b></p>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Candidates and parents</p>
+      <h2>Rated 5.0 by every reviewer</h2>
+      <div class="rating-row"><b>5.0</b><span class="stars" aria-label="5 out of 5">★★★★★</span><span>142 Google reviews · no rating below five stars</span></div>
+    </div>
+    <div class="voices">
+      <figure class="voice big"><blockquote>Recommended for the NDA 151 course from 5 AFSB Guwahati after training here.</blockquote><figcaption><b>Abhijit Sinha</b><span>Parent</span></figcaption></figure>
+      <figure class="voice"><blockquote>His experience as an evaluator helps fresh candidates understand the testing process and get familiar with its challenges.</blockquote><figcaption><b>Sanjana Ghosh</b><span class="tag">SSB</span></figcaption></figure>
+      <figure class="voice"><blockquote>The classroom sessions are structured and interactive, with mock sessions that simulate the real screening, psychology, group and interview tests.</blockquote><figcaption><b>Richa Bhakat</b><span class="tag">SSB</span></figcaption></figure>
+      <figure class="voice"><blockquote>Attended the online SSB coaching from Bhubaneswar. Patient teaching and clear explanations boosted my confidence for the interview.</blockquote><figcaption><b>Saurish Dashmishra</b><span class="tag">Online</span></figcaption></figure>
+      <figure class="voice"><blockquote>As a parent I saw a remarkable improvement in my daughter's confidence, communication and overall personality.</blockquote><figcaption><b>Pinki Bhakat</b><span>Parent</span></figcaption></figure>
+      <figure class="voice"><blockquote>A professional, scientific approach by experienced officers who understand each candidate and coach accordingly.</blockquote><figcaption><b>Wg Cdr Sujoy Biswas (Retd)</b><span class="tag">Veteran</span></figcaption></figure>
+      <figure class="voice"><blockquote>Very good coaching for Sainik School. My son is doing really well and the instructors are very helpful.</blockquote><figcaption><b>Karima Bibi</b><span class="tag">Sainik School</span></figcaption></figure>
+      <figure class="voice"><blockquote>Current-affairs practice here improved my lecturette and GD. Sir's SSB experience is enormous.</blockquote><figcaption><b>Radhika Mishra</b><span class="tag">SSB</span></figcaption></figure>
+      <figure class="voice"><blockquote>His interactive classes helped me get screened in at my AFSB, and his remarks helped me improve.</blockquote><figcaption><b>Aditi Patar</b><span class="tag">AFSB</span></figcaption></figure>
+    </div>
+    <p class="fine" style="margin-top:8px">Excerpts from public Google reviews, lightly shortened.</p>
+  </div>
+</section>
+
+<section id="enquire" class="band">
+  <div class="wrap enq">
+    <div class="side" id="visit">
+      <p class="eyebrow">Enquire</p>
+      <h2>Tell us your target entry</h2>
+      <p class="lede">Fill this in and we will call you back to discuss batches, timings and fees. The form also opens a ready-written WhatsApp message so your enquiry reaches the academy straight away.</p>
+      <div class="facts">
+        <div class="fact"><span>Call</span><span><span class="num" id="phone">+91 91637 22921</span><button class="copy" type="button" id="copyPhone">Copy</button></span></div>
+        <div class="fact"><span>Address</span><span>DB-76, Street No. 290, Action Area 1D, New Town, Kolkata 700156<br><small style="color:var(--band-muted)">Near The New Town School</small></span></div>
+        <div class="fact"><span>Hours</span><span>Open daily, closes 6 pm</span></div>
+        <div class="fact"><span>Find us</span><span><a href="https://www.google.com/maps/place/FLY+HIGH+ACADEMY,+Newtown,+Kolkata,+India/@22.5711911,88.4665844,17z" target="_blank" rel="noopener">Google Maps</a> · <a href="https://www.facebook.com/flyhighacademySSB" target="_blank" rel="noopener">Facebook</a> · <a href="https://wa.me/919163722921" target="_blank" rel="noopener">WhatsApp</a></span></div>
+      </div>
+    </div>
+
+    <div>
+      <form id="leadForm" novalidate>
+        <div class="row">
+          <div class="f"><label for="name">Full name</label><input id="name" name="name" autocomplete="name" placeholder="e.g. Arjun Sen" required><span class="err" id="e-name"></span></div>
+          <div class="f"><label for="phoneIn">Mobile / WhatsApp</label><input id="phoneIn" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="10-digit number" required><span class="err" id="e-phone"></span></div>
+        </div>
+        <fieldset>
+          <legend class="lg">I am</legend>
+          <div class="chips">
+            <label><input type="radio" name="who" id="who-c" value="Candidate" checked> A candidate</label>
+            <label><input type="radio" name="who" id="who-p" value="Parent / guardian"> A parent / guardian</label>
+          </div>
+        </fieldset>
+        <div class="row">
+          <div class="f"><label for="program">Program</label>
+            <select id="program" name="program">
+              <option>SSB Interview Preparation</option><option>NDA Written + SSB</option><option>CDSE / AFCAT Written</option><option>PABT / CPSS</option><option>Sainik School / RIMC / RMS</option><option>Spoken English &amp; Personality</option><option>Not sure, need counselling</option>
+            </select></div>
+          <div class="f"><label for="entry">Target entry or exam <i>(optional)</i></label><input id="entry" name="entry" placeholder="e.g. NDA 157, AFCAT 01/2027"></div>
+        </div>
+        <div class="row">
+          <div class="f"><label for="ssbDate">SSB / exam date <i>(if known)</i></label><input id="ssbDate" name="ssbDate" type="date"></div>
+          <div class="f"><label for="city">City</label><input id="city" name="city" placeholder="Kolkata" autocomplete="address-level2"></div>
+        </div>
+        <fieldset>
+          <legend class="lg">Preferred mode</legend>
+          <div class="chips">
+            <label><input type="radio" name="mode" id="mode-c" value="Classroom, New Town" checked> Classroom, New Town</label>
+            <label><input type="radio" name="mode" id="mode-o" value="Online"> Online</label>
+          </div>
+        </fieldset>
+        <div class="f"><label for="msg">Anything we should know <i>(optional)</i></label><textarea id="msg" name="msg" placeholder="Previous SSB attempts, screened out or conferenced out, preferred call time…"></textarea></div>
+        <button class="btn" type="submit" id="submitBtn">Send enquiry</button>
+        <p class="fine">We use your number only to contact you about coaching.</p>
+      </form>
+      <div id="doneBox" class="done" hidden style="background:var(--paper);color:var(--ink);border-radius:10px;padding:clamp(20px,3.5vw,34px)">
+        <h3>Enquiry ready</h3>
+        <p id="doneNote">Tap the button below to send it to the academy on WhatsApp. You can also call <b>+91 91637 22921</b>.</p>
+        <pre id="donePreview"></pre>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <a class="btn wa" id="waLink" href="https://wa.me/919163722921" target="_blank" rel="noopener">Send on WhatsApp</a>
+          <button class="btn ghost" type="button" id="againBtn">New enquiry</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="inbox" id="inbox" hidden>
+      <p class="eyebrow" style="color:var(--saffron-ink)">Owner view · only you see this</p>
+      <h3 style="margin:6px 0 14px">Enquiries received</h3>
+      <p class="fine" id="inboxNote">Loading enquiries…</p>
+      <table hidden id="inboxTable"><thead><tr><th>When</th><th>Name</th><th>Phone</th><th>Program</th><th>Entry</th><th>Mode</th><th>Note</th></tr></thead><tbody id="inboxBody"></tbody></table>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Fly High Academy, New Town, Kolkata · Defence entrance &amp; SSB coaching since 2022</span>
+    <span><a href="#enquire">Enquire</a> · <a href="https://www.facebook.com/flyhighacademySSB" target="_blank" rel="noopener">Facebook</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // images: show if present
+  var IMGS={hero:"img/hero.jpg",mentor:"img/mentor.jpg",gto:"img/gto.jpg",gd:"img/gd.jpg",pabt:"img/pabt.jpg",sainik:"img/sainik.jpg"};
+  Object.keys(IMGS).forEach(function(k){
+    var el=document.getElementById("img-"+k); if(!el) return;
+    var ph=document.getElementById("ph-"+k);
+    el.onload=function(){el.hidden=false; if(ph) ph.hidden=true;};
+    el.src=IMGS[k];
+  });
+
+  // program links prefill
+  document.querySelectorAll("[data-prog]").forEach(function(a){
+    a.addEventListener("click",function(){var s=document.getElementById("program");var v=a.getAttribute("data-prog");
+      for(var i=0;i<s.options.length;i++){if(s.options[i].text===v){s.selectedIndex=i;}}});
+  });
+
+  // copy phone
+  document.getElementById("copyPhone").addEventListener("click",function(e){
+    var b=e.currentTarget;
+    navigator.clipboard.writeText("+919163722921").then(function(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy"},1600)})
+      .catch(function(){var r=document.createRange();r.selectNodeContents(document.getElementById("phone"));var s=getSelection();s.removeAllRanges();s.addRange(r);});
+  });
+
+  var form=document.getElementById("leadForm"), done=document.getElementById("doneBox");
+  var dbP=null, userP=null;
+  try{ if(window.claude&&claude.use){ dbP=claude.use("db"); userP=claude.use("user"); } }catch(e){}
+
+  function val(id){return (document.getElementById(id).value||"").trim();}
+  function radio(n){var r=form.querySelector('input[name="'+n+'"]:checked');return r?r.value:"";}
+
+  form.addEventListener("submit",async function(ev){
+    ev.preventDefault();
+    var ok=true, name=val("name"), phone=val("phoneIn").replace(/[^\d+]/g,"");
+    document.getElementById("e-name").textContent=""; document.getElementById("e-phone").textContent="";
+    if(name.length<2){document.getElementById("e-name").textContent="Enter your name so we know who to ask for.";ok=false;}
+    var digits=phone.replace(/\D/g,"");
+    if(digits.length<10||digits.length>13){document.getElementById("e-phone").textContent="Enter a 10-digit mobile number, with or without +91.";ok=false;}
+    if(!ok) return;
+    var lead={name:name,phone:phone,who:radio("who"),program:val("program"),entry:val("entry"),ssbDate:val("ssbDate"),city:val("city"),mode:radio("mode"),msg:val("msg"),at:new Date().toISOString()};
+    var text="Hello Fly High Academy, I'd like to enquire about coaching.\n"+
+      "Name: "+lead.name+" ("+lead.who+")\nPhone: "+lead.phone+"\nProgram: "+lead.program+
+      (lead.entry?"\nTarget entry: "+lead.entry:"")+(lead.ssbDate?"\nExam/SSB date: "+lead.ssbDate:"")+
+      (lead.city?"\nCity: "+lead.city:"")+"\nMode: "+lead.mode+(lead.msg?"\nNote: "+lead.msg:"");
+    document.getElementById("waLink").href="https://wa.me/919163722921?text="+encodeURIComponent(text);
+    document.getElementById("donePreview").textContent=text;
+
+    var saved=false;
+    try{
+      var db=dbP?await dbP:null, user=userP?await userP:null;
+      if(db){
+        var id=user?await user.id():null;
+        var ref=id?db.collection("leads").doc(id):db.collection("leads").doc();
+        await ref.set(lead); saved=true;
+      }
+    }catch(e){ saved=false; }
+    document.getElementById("doneNote").innerHTML=(saved?"Saved. ":"")+"Tap the button below to send it to the academy on WhatsApp. You can also call <b>+91 91637 22921</b>.";
+    form.hidden=true; done.hidden=false;
+  });
+  document.getElementById("againBtn").addEventListener("click",function(){form.reset();done.hidden=true;form.hidden=false;});
+
+  // owner inbox
+  (async function(){
+    try{
+      if(!userP||!dbP) return;
+      var user=await userP; if(!user) return;
+      var ed=false; try{ed=await user.canEdit();}catch(e){}
+      if(!ed) return;
+      var db=await dbP; if(!db) return;
+      var box=document.getElementById("inbox"), note=document.getElementById("inboxNote"), tb=document.getElementById("inboxBody"), tbl=document.getElementById("inboxTable");
+      box.hidden=false;
+      var t=setTimeout(function(){note.textContent="Enquiries can't be reached right now. They will appear when the connection returns.";},10000);
+      db.collection("leads").orderBy("at","desc").limit(200).onSnapshot(function(s){
+        if(!s.metadata.fromCache) clearTimeout(t);
+        tb.textContent="";
+        if(s.empty){note.textContent="No enquiries yet. New ones from the form above appear here.";tbl.hidden=true;return;}
+        note.textContent=s.size+" enquir"+(s.size===1?"y":"ies")+", newest first.";tbl.hidden=false;
+        s.docs.forEach(function(d){var x=d.data()||{};var tr=document.createElement("tr");
+          [x.at?new Date(x.at).toLocaleString("en-IN",{dateStyle:"medium",timeStyle:"short"}):"",(x.name||"")+(x.who?" · "+x.who:""),x.phone,x.program,x.entry,x.mode,x.msg].forEach(function(v){var td=document.createElement("td");td.textContent=v||"–";tr.appendChild(td);});
+          tb.appendChild(tr);});
+      },function(){clearTimeout(t);note.textContent="Enquiries could not be loaded.";});
+    }catch(e){}
+  })();
+})();
+</script>
+</body>
+</html>
